@@ -7,32 +7,40 @@
     </a>
 </p>
 
-# Vue Splide
+# Vue Splide with Splide 3, Vue 3 and Vite support
 **Vue Splide is the [Splide](https://github.com/Splidejs/splide) component for [Vue](https://vuejs.org/).**
 * [Document](https://splidejs.com/integration-vue-splide/)
 * [Splide Demos](https://splidejs.com/)
 * [Working Examples](https://splidejs.github.io/vue-splide/)
 
-## Installation
-Get the latest version by NPM:
-```bash
-$ npm install @splidejs/vue-splide
-```
+## Key differences from original
+- Supports Vue 3 out-of-the-box
+- Supports Vite
+- Uses Splide 3
+  - It has normal TypeScript support
+  - It can be used with Vite straightaway
 
+### Caveats
+Module isn't declared. See [Typescript module registration](#typescript-module-registration) for declaring it manually.
+
+## Installation
+Add remote package to your dependencies inside `package.json`
+```
+...
+"dependencies": {
+		...
+    "@splidejs/vue-splide": "git+https://github.com/lurepheonix/vue3-splide3",
+}
+```
 ## Registration
 ### Global Registration
-Import `vue-splide` and install into Vue:
+Import `vue-splide` and install into Vue 3:
 ```javascript
 import Vue from 'vue';
 import App from './App';
 import VueSplide from '@splidejs/vue-splide';
 
-Vue.use( VueSplide );
-
-new Vue( {
-  el    : '#app',
-  render: h => h( App ),
-} );
+const app = createApp(App).use(VueSplide).mount('#app');
 ```
 
 ### Local Registration
@@ -47,6 +55,14 @@ export default {
   },
 }
 ```
+
+### Typescript module registration
+There is a hidden caveat with TS support: module requires a declaration.
+As a workaround, add:
+```javascript
+declare module "@splidejs/vue-splide";
+```
+somewhere to ones of d.ts files.
 
 ### CSS
 Import [styles](https://splidejs.com/themes/) if you need.
