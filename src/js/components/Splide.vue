@@ -64,8 +64,11 @@ export default {
 		/**
 		 * If the slides prop is provided, watch it and remount Splide.
 		 */
-		slides() {
-			this.remount();
+		slides: {
+			handler() {
+				this.remount();
+			},
+			deep: true,
 		},
 	},
 
@@ -123,8 +126,8 @@ export default {
 		remount() {
 			this.$nextTick(() => {
 				this.splide.destroy();
-				this.splide.mount();
 				this.bind();
+        this.splide.mount();
 			});
 		},
 	},
