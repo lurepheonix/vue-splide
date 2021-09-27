@@ -42,6 +42,8 @@ export default {
 		slides: Array,
 	},
 
+	emits: [...EVENTS.map((event) => `splide:${event}`)],
+
 	data() {
 		return {
 			splide: null,
