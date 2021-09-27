@@ -24,8 +24,7 @@
     "url": "https://github.com/Splidejs/vue-splide/issues"
   },
   "dependencies": {
-    "@splidejs/splide": "^2.4.13",
-    "@splidejs/splide-extension-video": "^0.4.6",
+    "@splidejs/splide": "git+https://github.com/Splidejs/splide#v3",
     "vue": "^2.6.12"
   },
   "devDependencies": {
